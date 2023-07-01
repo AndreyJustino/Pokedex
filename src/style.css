@@ -48,3 +48,27 @@ header input[type="text"] {
     height: 220px;
     margin: 0 auto;
 }
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+button:hover {
+    background-color: #2bff00;
+}
+  
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgb(0, 255, 0);
+}
+
+.mais{
+    margin-left: 50%;
+}

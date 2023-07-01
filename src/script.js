@@ -35,3 +35,37 @@ async function buscaPokemon() {
     }
   }
 
+async function listaPokemon(){
+    try{
+        // conectando a api
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=20}`);
+        const pokemonData = await response.json();
+
+        const array = pokemonData.results
+        
+        array.forEach(element => {
+            //criando elemento
+            const pokedexElement = document.getElementById('pokedex');
+
+            const pokemonCard = document.createElement('div');
+            pokemonCard.classList.add('pokemon-card');
+        
+            const pokemonName = document.createElement('p');
+            pokemonName.classList.add('pokemon-name');
+            pokemonName.innerText = element.name
+
+            const pokemonImage = document.createElement('img');
+            pokemonImage.classList.add('pokemon-image');
+            const id = element.url.split('/')
+            pokemonImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id[6]}.png` 
+
+            // exibindo
+            pokemonCard.appendChild(pokemonName);
+            pokemonCard.appendChild(pokemonImage);
+            pokedexElement.appendChild(pokemonCard);           
+        });
+
+    }catch(error){console.log(error)}
+}
+
+listaPokemon() 
