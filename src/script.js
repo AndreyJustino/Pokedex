@@ -1,3 +1,5 @@
+let c = 20
+
 async function buscaPokemon() {
     try {
         const busca = document.getElementById('pesquisa').value
@@ -33,12 +35,12 @@ async function buscaPokemon() {
     } catch (error) {
       console.log(error);
     }
-  }
+}
 
-async function listaPokemon(){
+async function listaPokemon(n){
     try{
         // conectando a api
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=20}`);
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${n}}`);
         const pokemonData = await response.json();
 
         const array = pokemonData.results
@@ -68,4 +70,20 @@ async function listaPokemon(){
     }catch(error){console.log(error)}
 }
 
-listaPokemon() 
+listaPokemon(c)
+
+async function remover(){
+    try{
+        const pokedexElement = document.getElementById('pokedex');
+
+        let n = 0
+        while(n < c){
+            pokedexElement.removeChild(pokedexElement.firstChild) 
+            n++
+        }
+        c = c + 20
+        
+        listaPokemon(c)
+
+    }catch(error){console.log(error)}
+}
