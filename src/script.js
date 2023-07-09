@@ -3,7 +3,9 @@ let i = 0
 
 async function buscaPokemon() {
     try {
-        const busca = document.getElementById('pesquisa').value
+        const pesquisa = document.getElementById('pesquisa').value
+
+        let busca = pesquisa.toLowerCase()
 
         if(busca == ''){
             alert('Digite o nome de um pokemon!')
