@@ -49,6 +49,17 @@ header input[type="text"] {
     margin: 0 auto;
 }
 
+.pokemon-card-busca { 
+    width: 200px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #adadadde;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: auto;
+    margin-right: auto;
+}
+
 button {
     display: inline-block;
     padding: 10px 20px;
